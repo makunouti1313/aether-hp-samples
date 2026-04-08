@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>整体院 ココスタ Treatment Room｜熊本市西区城山下代</title>
+<meta name="description" content="理学療法士・JSPO-AT資格保有。整形外科10年の経験を活かした筋膜調整・オステオパシー。熊本市西区城山下代の整体院ココスタ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#2a6e5a;
+  --primary-light:#e8f5f0;
+  --primary-dark:#1d4f3f;
+  --accent:#c8956c;
+  --text:#2c2c2c;
+  --text-light:#666;
+  --bg:#fafaf8;
+  --white:#fff;
+  --radius:8px;
+  --shadow:0 2px 16px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:700;color:var(--primary-dark);letter-spacing:.05em}
+.logo small{font-size:.65rem;display:block;font-weight:400;color:var(--text-light);letter-spacing:.1em}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:.85rem;font-weight:500;position:relative;transition:color .3s}
+.nav a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary);color:var(--white)!important;padding:8px 20px;border-radius:30px;font-size:.8rem!important;transition:background .3s!important}
+.nav-cta:hover{background:var(--primary-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:.3s}
+
+/* Hero */
+.hero{padding:140px 24px 100px;text-align:center;background:linear-gradient(135deg,var(--primary-light) 0%,#f0f7f4 50%,var(--bg) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(42,110,90,.06) 0%,transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:var(--white);border:1px solid var(--primary);color:var(--primary);font-size:.75rem;font-weight:500;padding:6px 18px;border-radius:30px;margin-bottom:24px;letter-spacing:.1em}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.5;margin-bottom:16px;color:var(--primary-dark)}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1rem;color:var(--text-light);max-width:600px;margin:0 auto 36px;line-height:2}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:30px;font-size:.9rem;font-weight:500;transition:all .3s;cursor:pointer;border:none}
+.btn-primary{background:var(--primary);color:var(--white)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 4px 20px rgba(42,110,90,.3)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:var(--white)}
+
+/* Section */
+.section{padding:80px 24px}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-label{font-size:.75rem;color:var(--primary);font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:'Noto Serif JP',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:16px;color:var(--primary-dark)}
+.section-desc{color:var(--text-light);max-width:600px;margin-bottom:48px;line-height:1.9}
+
+/* Credentials */
+.credentials{background:var(--white)}
+.cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.cred-card{background:var(--primary-light);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+.cred-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--primary)}
+.cred-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--primary-dark)}
+.cred-card p{font-size:.88rem;color:var(--text-light);line-height:1.8}
+.cred-icon{font-size:1.6rem;margin-bottom:12px}
+
+/* Pain Points */
+.pain{background:var(--bg)}
+.pain-list{display:grid;gap:20px;max-width:700px}
+.pain-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.pain-check{width:28px;height:28px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.8rem;flex-shrink:0;margin-top:2px}
+.pain-item p{font-size:.92rem;line-height:1.8}
+.pain-item strong{color:var(--primary-dark)}
+
+/* Menu */
+.menu{background:var(--white)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.menu-card{border:1px solid #e8e8e8;border-radius:var(--radius);padding:32px;transition:all .3s;position:relative}
+.menu-card:hover{border-color:var(--primary);box-shadow:var(--shadow)}
+.menu-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--primary-dark)}
+.menu-card p{font-size:.85rem;color:var(--text-light);line-height:1.8;margin-bottom:16px}
+.menu-price{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;color:var(--accent)}
+.menu-price small{font-size:.75rem;font-weight:400;color:var(--text-light)}
+.menu-tag{position:absolute;top:16px;right:16px;background:var(--accent);color:var(--white);font-size:.7rem;padding:4px 12px;border-radius:20px}
+
+/* Voice */
+.voice{background:var(--primary-light)}
+.voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.voice-card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.voice-stars{color:var(--accent);font-size:.9rem;margin-bottom:12px;letter-spacing:2px}
+.voice-text{font-size:.9rem;line-height:1.9;margin-bottom:16px;font-style:italic;color:var(--text)}
+.voice-name{font-size:.8rem;color:var(--text-light);text-align:right}
+
+/* Flow */
+.flow{background:var(--white)}
+.flow-steps{display:grid;gap:0;max-width:600px;margin:0 auto}
+.flow-step{display:flex;gap:20px;padding:24px 0;position:relative}
+.flow-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:60px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),var(--primary-light))}
+.flow-num{width:40px;height:40px;background:var(--primary);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;position:relative;z-index:1}
+.flow-content h3{font-size:.95rem;font-weight:700;margin-bottom:4px;color:var(--primary-dark)}
+.flow-content p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+
+/* Access */
+.access{background:var(--bg)}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.access-map{width:100%;height:300px;border-radius:var(--radius);overflow:hidden;background:#e0e0e0;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:.85rem;border:1px solid #ddd}
+.access-info{display:grid;gap:16px}
+.access-row{display:flex;gap:12px;font-size:.9rem}
+.access-row dt{font-weight:700;min-width:80px;color:var(--primary-dark)}
+.access-row dd{color:var(--text-light)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);text-align:center;padding:80px 24px}
+.cta-section h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:16px}
+.cta-section p{opacity:.85;margin-bottom:32px;font-size:.95rem}
+.cta-section .btn-primary{background:var(--white);color:var(--primary-dark)}
+.cta-section .btn-primary:hover{background:var(--accent);color:var(--white)}
+.cta-tel{font-family:'Noto Serif JP',serif;font-size:1.8rem;font-weight:700;margin-bottom:8px;letter-spacing:.05em}
+.cta-tel a{color:var(--white)}
+.cta-hours{font-size:.8rem;opacity:.7;margin-bottom:24px}
+
+/* Footer */
+.footer{background:#1a1a1a;color:rgba(255,255,255,.6);text-align:center;padding:40px 24px;font-size:.75rem}
+.footer-logo{font-family:'Noto Serif JP',serif;color:var(--white);font-size:1rem;margin-bottom:8px}
+.footer p{line-height:1.8}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav{display:none;position:fixed;top:70px;left:0;width:100%;background:var(--white);flex-direction:column;padding:24px;gap:20px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+  .nav.active{display:flex}
+  .hamburger{display:flex}
+  .hero{padding:120px 20px 70px}
+  .section{padding:60px 20px}
+  .access-grid{grid-template-columns:1fr}
+  .cred-grid,.menu-grid,.voice-grid{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column;align-items:center}
+}
+
+/* Sample Badge */
+.sample-badge{position:fixed;bottom:20px;right:20px;background:rgba(0,0,0,.7);color:#fff;font-size:.7rem;padding:8px 16px;border-radius:20px;z-index:999;backdrop-filter:blur(4px)}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo">ココスタ Treatment Room<small>整体院 ― 熊本市西区</small></div>
+    <nav class="nav" id="nav">
+      <a href="#about">当院について</a>
+      <a href="#symptoms">こんな症状に</a>
+      <a href="#menu">施術メニュー</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">ご予約はこちら</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="document.getElementById('nav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">理学療法士 × JSPO-AT 有資格者</div>
+  <h1>整形外科<span>10年</span>の経験が<br>あなたの痛みに向き合う</h1>
+  <p>理学療法士・日本スポーツ協会公認AT資格を持つ院長が、筋膜調整・オステオパシーで根本からアプローチ。熊本市西区城山下代の整体院です。</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn btn-primary">予約する</a>
+    <a href="#about" class="btn btn-outline">詳しく見る</a>
+  </div>
+</section>
+
+<!-- Credentials -->
+<section class="section credentials" id="about">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">選ばれる理由</div>
+    <div class="section-desc">医療現場で培った知識と技術を、整体の現場に。</div>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <div class="cred-icon">🏥</div>
+        <h3>整形外科10年の臨床経験</h3>
+        <p>病院で10年間、多くの患者様のリハビリに携わった経験があります。医学的根拠に基づいた施術を行います。</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">📋</div>
+        <h3>理学療法士 国家資格保有</h3>
+        <p>身体の構造を深く理解した国家資格保有者が、安心・安全な施術を提供します。</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">⚽</div>
+        <h3>JSPO-AT（公認アスレティックトレーナー）</h3>
+        <p>スポーツ選手のケアにも精通。スポーツ障害からデスクワークの不調まで幅広く対応します。</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🤲</div>
+        <h3>筋膜調整・オステオパシー</h3>
+        <p>痛みの根本原因にアプローチする専門技術。身体全体のつながりを見て施術を行います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pain Points -->
+<section class="section pain" id="symptoms">
+  <div class="section-inner">
+    <div class="section-label">Symptoms</div>
+    <div class="section-title">こんなお悩みありませんか？</div>
+    <div class="section-desc">一つでも当てはまる方は、ぜひご相談ください。</div>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-check">&#10003;</div>
+        <p><strong>慢性的な肩こり・腰痛</strong>がマッサージでは改善しない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-check">&#10003;</div>
+        <p><strong>頭痛・めまい</strong>が繰り返し起こり、原因がわからない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-check">&#10003;</div>
+        <p><strong>スポーツでのケガ</strong>が治りきらず、パフォーマンスが上がらない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-check">&#10003;</div>
+        <p><strong>手術後のリハビリ</strong>をもっと丁寧にみてほしい</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-check">&#10003;</div>
+        <p><strong>病院では異常なし</strong>と言われたのに、痛みや違和感が続く</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="section menu" id="menu">
+  <div class="section-inner">
+    <div class="section-label">Menu</div>
+    <div class="section-title">施術メニュー</div>
+    <div class="section-desc">お身体の状態に合わせて最適な施術をご提案します。</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <span class="menu-tag">人気</span>
+        <h3>筋膜調整コース</h3>
+        <p>筋膜の癒着・硬結にアプローチし、痛みの根本原因を解消します。慢性的な肩こり・腰痛に。</p>
+        <div class="menu-price">¥6,600<small>（税込）/ 約60分</small></div>
+      </div>
+      <div class="menu-card">
+        <h3>オステオパシー整体</h3>
+        <p>身体全体のバランスを整える手技療法。自律神経の乱れや原因不明の不調に。</p>
+        <div class="menu-price">¥7,700<small>（税込）/ 約60分</small></div>
+      </div>
+      <div class="menu-card">
+        <h3>スポーツケア</h3>
+        <p>JSPO-AT資格を活かしたスポーツ障害への専門施術。パフォーマンス向上もサポート。</p>
+        <div class="menu-price">¥6,600<small>（税込）/ 約60分</small></div>
+      </div>
+      <div class="menu-card">
+        <h3>初回カウンセリング付き</h3>
+        <p>初めての方は丁寧なカウンセリング+検査を行い、お身体の状態を詳しく把握します。</p>
+        <div class="menu-price">¥5,500<small>（税込）/ 約90分</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voice -->
+<section class="section voice" id="voice">
+  <div class="section-inner">
+    <div class="section-label">Voice</div>
+    <div class="section-title">お客様の声</div>
+    <div class="section-desc">実際にご来院いただいた方からのお声です。</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「長年の肩こりが数回で楽になりました。なぜ痛いのか、理学療法士の先生がしっかり説明してくれるので安心できます。」</p>
+        <p class="voice-name">― 40代女性・肩こり</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「スポーツで痛めた膝を診ていただきました。トレーナー資格もお持ちで、競技復帰まで親身にサポートしてもらえました。」</p>
+        <p class="voice-name">― 30代男性・膝痛</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「病院で異常なしと言われた腰痛が、筋膜調整で改善。原因をきちんと見つけてくれて感謝しています。」</p>
+        <p class="voice-name">― 50代女性・腰痛</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="section flow">
+  <div class="section-inner">
+    <div class="section-label">Flow</div>
+    <div class="section-title">施術の流れ</div>
+    <div class="section-desc">初めての方も安心してご来院いただけます。</div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <h3>ご予約</h3>
+          <p>お電話またはLINEでお気軽にご予約ください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <h3>カウンセリング・検査</h3>
+          <p>現在の症状やお悩みを丁寧にヒアリング。身体の状態を詳しく検査します。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <h3>施術</h3>
+          <p>お身体に合わせた最適な施術を行います。痛みの少ないソフトな手技です。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <h3>アフターカウンセリング</h3>
+          <p>施術後の状態を確認し、セルフケアや今後の施術プランをご説明します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="section access" id="access">
+  <div class="section-inner">
+    <div class="section-label">Access</div>
+    <div class="section-title">アクセス</div>
+    <div class="access-grid">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.5!2d130.68!3d32.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sja!2sjp!4v1" width="100%" height="300" style="border:0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-row">
+          <dt>院名</dt>
+          <dd>整体院 ココスタ Treatment Room</dd>
+        </div>
+        <div class="access-row">
+          <dt>住所</dt>
+          <dd>熊本市西区城山下代</dd>
+        </div>
+        <div class="access-row">
+          <dt>営業時間</dt>
+          <dd>9:00〜20:00（最終受付 19:00）</dd>
+        </div>
+        <div class="access-row">
+          <dt>定休日</dt>
+          <dd>不定休（お問い合わせください）</dd>
+        </div>
+        <div class="access-row">
+          <dt>駐車場</dt>
+          <dd>あり</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>お身体の不調、一人で悩まずプロにお任せください。</p>
+  <div class="cta-tel"><a href="tel:0000000000">000-000-0000</a></div>
+  <p class="cta-hours">受付時間 9:00〜20:00</p>
+  <a href="#" class="btn btn-primary">LINEで予約する</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">整体院 ココスタ Treatment Room</div>
+  <p>熊本市西区城山下代<br>&copy; 2024 ココスタ Treatment Room All Rights Reserved.</p>
+</footer>
+
+<div class="sample-badge">DESIGN SAMPLE by Aether</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('header').classList.toggle('scrolled',window.scrollY>50);
+});
+</script>
+</body>
+</html>

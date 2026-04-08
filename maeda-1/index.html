@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>まえだ鍼灸整骨院 | 大阪市西区</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a6b4a;
+  --primary-light: #e8f5ee;
+  --primary-dark: #0d4a30;
+  --accent: #c9883a;
+  --text: #2d2d2d;
+  --text-light: #666;
+  --bg: #fafaf7;
+  --white: #fff;
+  --shadow: 0 2px 20px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; }
+
+/* Header */
+.header {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+.header-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px;
+}
+.logo { font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.logo small { display: block; font-size: 0.65rem; color: var(--text-light); font-weight: 400; letter-spacing: 0.05em; }
+nav { display: flex; gap: 20px; align-items: center; }
+nav a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+nav a:hover { color: var(--primary); }
+.nav-cta { background: var(--primary); color: var(--white) !important; padding: 8px 20px; border-radius: 30px; font-size: 0.85rem !important; }
+.nav-cta:hover { background: var(--primary-dark); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: 0.3s; }
+
+/* Hero - Crayonsite風にアップデート */
+.hero {
+  margin-top: 70px;
+  background: linear-gradient(135deg, var(--primary) 0%, #2a8a62 100%);
+  padding: 80px 20px 60px;
+  text-align: center; color: var(--white);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -30%; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 30px; font-size: 0.8rem; margin-bottom: 20px; letter-spacing: 0.1em; }
+.hero h1 { font-family: 'Zen Maru Gothic', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.hero p { font-size: 1rem; opacity: 0.9; max-width: 500px; margin: 0 auto 30px; }
+.hero-info { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.85; }
+.hero-info span { display: flex; align-items: center; gap: 6px; }
+
+/* Section */
+.section { padding: 70px 20px; max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; color: var(--primary); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.section h2 { font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.7rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+.section-desc { color: var(--text-light); margin-bottom: 40px; max-width: 600px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.about-img { background: linear-gradient(135deg, var(--primary-light), #d4edda); border-radius: var(--radius); height: 280px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.about-list { list-style: none; }
+.about-list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+.about-list li::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; flex-shrink: 0; }
+
+/* Menu */
+.menu-bg { background: var(--white); }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.menu-card {
+  background: var(--bg); border-radius: var(--radius); padding: 28px;
+  border: 1px solid #e8e8e5; transition: transform 0.2s, box-shadow 0.2s;
+}
+.menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.menu-icon { font-size: 2rem; margin-bottom: 12px; }
+.menu-card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text); }
+.menu-card p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; }
+.menu-price { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+.menu-price small { font-size: 0.75rem; font-weight: 400; color: var(--text-light); }
+
+/* Flow */
+.flow-list { counter-reset: flow; }
+.flow-item {
+  display: flex; gap: 20px; align-items: flex-start; padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+.flow-num {
+  counter-increment: flow;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1rem; flex-shrink: 0;
+}
+.flow-item h3 { font-size: 1rem; margin-bottom: 4px; }
+.flow-item p { font-size: 0.85rem; color: var(--text-light); }
+
+/* Access */
+.access-bg { background: var(--primary-light); }
+.access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.access-map { background: #ddd; border-radius: var(--radius); min-height: 250px; overflow: hidden; }
+.access-map iframe { width: 100%; height: 100%; border: 0; min-height: 250px; }
+.access-info { font-size: 0.95rem; }
+.access-info dl { display: grid; grid-template-columns: 80px 1fr; gap: 8px 16px; }
+.access-info dt { font-weight: 700; color: var(--primary); }
+.access-info dd { color: var(--text); }
+
+/* Hours */
+.hours-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.hours-table th, .hours-table td { padding: 12px 16px; text-align: center; font-size: 0.9rem; }
+.hours-table thead { background: var(--primary); color: var(--white); }
+.hours-table tbody tr:nth-child(even) { background: var(--primary-light); }
+.hours-table .open { color: var(--primary); font-weight: 700; }
+.hours-table .closed { color: #c44; }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white); text-align: center; padding: 70px 20px;
+}
+.cta-section h2 { font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.8rem; margin-bottom: 12px; }
+.cta-section p { opacity: 0.9; margin-bottom: 30px; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border-radius: 30px; text-decoration: none;
+  font-weight: 700; font-size: 1rem; transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.03); }
+.btn-white { background: var(--white); color: var(--primary); }
+.btn-outline { border: 2px solid var(--white); color: var(--white); background: transparent; }
+
+/* Footer */
+footer { background: #1a1a1a; color: #999; padding: 40px 20px; text-align: center; font-size: 0.8rem; }
+footer a { color: #bbb; text-decoration: none; }
+
+/* Badge */
+.trust-badges { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+.badge { text-align: center; }
+.badge-icon { font-size: 2.5rem; margin-bottom: 8px; }
+.badge p { font-size: 0.8rem; color: var(--text-light); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hamburger { display: flex; }
+  nav.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; box-shadow: var(--shadow); }
+  .hero h1 { font-size: 1.6rem; }
+  .hero { padding: 60px 16px 40px; }
+  .about-grid, .access-grid { grid-template-columns: 1fr; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .section { padding: 50px 16px; }
+  .hours-table th, .hours-table td { padding: 8px 6px; font-size: 0.75rem; }
+}
+
+/* Sample Banner */
+.sample-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(26,107,74,0.95); color: var(--white);
+  text-align: center; padding: 10px 20px; font-size: 0.8rem;
+  backdrop-filter: blur(10px);
+}
+.sample-banner a { color: #ffd700; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- Sample Banner -->
+<div class="sample-banner">
+  これはサンプルページです。実際のご依頼時にはお好みに合わせて調整いたします。
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">まえだ鍼灸整骨院<small>大阪市西区</small></a>
+    <nav id="nav">
+      <a href="#about">院について</a>
+      <a href="#menu">施術メニュー</a>
+      <a href="#flow">施術の流れ</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">ご予約・お問合せ</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('nav').classList.toggle('active')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">大阪府柔道整復師会 登録院</div>
+  <h1>つらい痛み、<br>根本からやさしく。</h1>
+  <p>大阪市西区で地域の皆さまの健康をサポート。<br>鍼灸・整骨・リハビリまで、一人ひとりに合った施術を。</p>
+  <div class="hero-info">
+    <span>&#128205; 大阪市西区</span>
+    <span>&#128222; 06-XXXX-XXXX</span>
+    <span>&#128340; 9:00〜19:00</span>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="section-label">About</div>
+  <h2>まえだ鍼灸整骨院について</h2>
+  <p class="section-desc">大阪府柔道整復師会に登録する正規院として、確かな技術と丁寧な対応で地域の皆さまに信頼いただいています。</p>
+  <div class="about-grid">
+    <div class="about-img">&#127973;</div>
+    <div>
+      <ul class="about-list">
+        <li>国家資格保有のスタッフが施術</li>
+        <li>大阪府柔道整復師会 正規登録院</li>
+        <li>お一人おひとりの症状に合わせたオーダーメイド施術</li>
+        <li>痛みの原因を根本からアプローチ</li>
+        <li>各種保険取扱い対応</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Badges -->
+<div class="trust-badges">
+  <div class="badge">
+    <div class="badge-icon">&#127942;</div>
+    <p>国家資格保有</p>
+  </div>
+  <div class="badge">
+    <div class="badge-icon">&#128203;</div>
+    <p>各種保険取扱い</p>
+  </div>
+  <div class="badge">
+    <div class="badge-icon">&#129309;</div>
+    <p>丁寧なカウンセリング</p>
+  </div>
+  <div class="badge">
+    <div class="badge-icon">&#128205;</div>
+    <p>地域密着の安心</p>
+  </div>
+</div>
+
+<!-- Menu -->
+<section class="section menu-bg" id="menu">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="section-label">Menu</div>
+    <h2>施術メニュー</h2>
+    <p class="section-desc">症状やお悩みに合わせて、最適な施術をご提案いたします。</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon">&#128156;</div>
+        <h3>保険診療（整骨）</h3>
+        <p>骨折・脱臼・捻挫・打撲・挫傷など、急性のケガに対する施術。各種保険適用。</p>
+        <div class="menu-price">保険適用 <small>/ 自己負担額はお問合せください</small></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">&#129704;</div>
+        <h3>鍼灸施術</h3>
+        <p>肩こり・腰痛・神経痛など、慢性的なつらさを鍼と灸でアプローチ。</p>
+        <div class="menu-price">3,500円〜 <small>/ 1回</small></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">&#128170;</div>
+        <h3>リハビリ・運動療法</h3>
+        <p>ケガの回復・再発防止のための運動指導とリハビリテーション。</p>
+        <div class="menu-price">2,500円〜 <small>/ 1回</small></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">&#129506;</div>
+        <h3>骨盤矯正</h3>
+        <p>姿勢の歪みや産後の骨盤ケア。身体のバランスを整えます。</p>
+        <div class="menu-price">4,000円〜 <small>/ 1回</small></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">&#9889;</div>
+        <h3>電気治療</h3>
+        <p>低周波・干渉波などの物理療法で筋肉の緊張をほぐし回復を促進。</p>
+        <div class="menu-price">1,500円〜 <small>/ 1回</small></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">&#128588;</div>
+        <h3>マッサージ・ストレッチ</h3>
+        <p>手技によるほぐしとストレッチで、日常の疲れやコリを解消。</p>
+        <div class="menu-price">3,000円〜 <small>/ 30分</small></div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-light);margin-top:20px;text-align:center;">※料金は目安です。症状により異なる場合があります。詳しくはお気軽にご相談ください。</p>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="section" id="flow">
+  <div class="section-label">Flow</div>
+  <h2>施術の流れ</h2>
+  <p class="section-desc">初めての方も安心。ご来院からお帰りまでの流れをご紹介します。</p>
+  <div class="flow-list">
+    <div class="flow-item">
+      <div class="flow-num">1</div>
+      <div><h3>ご予約・ご来院</h3><p>お電話またはご来院でご予約ください。予約優先制でお待たせしません。</p></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">2</div>
+      <div><h3>問診・カウンセリング</h3><p>症状やお悩みを丁寧にお聞きし、現在のお身体の状態を確認します。</p></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">3</div>
+      <div><h3>検査・説明</h3><p>痛みの原因を特定し、施術方針をわかりやすくご説明します。</p></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">4</div>
+      <div><h3>施術</h3><p>お一人おひとりに合った施術を行います。痛みの少ないやさしい施術を心がけています。</p></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">5</div>
+      <div><h3>アフターケア・ご説明</h3><p>今後の施術計画やご自宅でのセルフケア方法をお伝えします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Hours -->
+<section class="section">
+  <div class="section-label">Hours</div>
+  <h2>診療時間</h2>
+  <p class="section-desc">ご都合に合わせてご来院ください。</p>
+  <table class="hours-table">
+    <thead>
+      <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>午前 9:00〜12:00</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="closed">休</td></tr>
+      <tr><td>午後 15:00〜19:00</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="open">&#9675;</td><td class="closed">休</td><td class="closed">休</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.8rem;color:var(--text-light);margin-top:12px;">※祝日は休診となります。診療時間は変更になる場合があります。</p>
+</section>
+
+<!-- Access -->
+<section class="section access-bg" id="access">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="section-label">Access</div>
+    <h2>アクセス</h2>
+    <div class="access-grid">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13124.8!2d135.48!3d34.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5aSn6Ziq5biC6KW_5Yy6!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-info">
+        <dl>
+          <dt>住所</dt><dd>大阪市西区（詳細はお問合せください）</dd>
+          <dt>電話</dt><dd>06-XXXX-XXXX</dd>
+          <dt>最寄駅</dt><dd>大阪メトロ各線</dd>
+          <dt>駐車場</dt><dd>近隣コインパーキングあり</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>お気軽にご相談ください</h2>
+  <p>つらい症状、一人で悩まずまずはご連絡を。<br>あなたに合った施術をご提案いたします。</p>
+  <div class="cta-buttons">
+    <a href="tel:06XXXXXXXX" class="btn btn-white">&#128222; 電話で予約する</a>
+    <a href="#" class="btn btn-outline">&#128233; メールで相談する</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; まえだ鍼灸整骨院 | サンプルページ（制作: Project Aether）</p>
+  <p style="margin-top:8px;">※このページはイメージサンプルです。内容はご要望に応じて調整いたします。</p>
+</footer>
+
+</body>
+</html>

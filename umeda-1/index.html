@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>梅田鍼灸治療院・整骨院｜大阪 南森町・天満</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;color:#333;line-height:1.8;background:#F0EFE3}
+img{max-width:100%;height:auto}
+a{color:#FF6600;text-decoration:none;transition:color .3s}
+a:hover{color:#FF9900}
+
+/* Header */
+.header{background:#fff;border-top:4px solid #996600;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.header-inner{max-width:960px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo h1{font-size:1.4rem;color:#333;font-weight:700}
+.logo span{display:block;font-size:.75rem;color:#996600;font-weight:400}
+.header-contact{text-align:right}
+.header-contact .tel{font-size:1.3rem;font-weight:700;color:#996600;letter-spacing:.05em}
+.header-contact .tel a{color:#996600}
+.header-contact .addr{font-size:.75rem;color:#666}
+
+/* Nav */
+.nav{background:#996600}
+.nav ul{max-width:960px;margin:0 auto;padding:0;list-style:none;display:flex;flex-wrap:wrap}
+.nav li{flex:1}
+.nav a{display:block;padding:12px 8px;text-align:center;color:#fff;font-size:.9rem;font-weight:500;transition:background .3s}
+.nav a:hover{background:#7a5200;color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#F0EFE3 0%,#E1DFC8 100%);padding:60px 20px;text-align:center}
+.hero h2{font-size:1.6rem;color:#333;margin-bottom:12px;line-height:1.5}
+.hero h2 em{color:#996600;font-style:normal}
+.hero p{font-size:1rem;color:#555;max-width:640px;margin:0 auto 24px}
+.btn-primary{display:inline-block;background:#FF6600;color:#fff;padding:14px 40px;border-radius:6px;font-size:1rem;font-weight:700;transition:background .3s,transform .2s;box-shadow:0 4px 12px rgba(255,102,0,.3)}
+.btn-primary:hover{background:#e55a00;color:#fff;transform:translateY(-2px)}
+
+/* Section */
+.section{max-width:960px;margin:0 auto;padding:60px 20px}
+.section-title{font-size:1.4rem;color:#996600;text-align:center;margin-bottom:8px;position:relative}
+.section-sub{text-align:center;font-size:.85rem;color:#888;margin-bottom:40px}
+.section-title::after{content:'';display:block;width:60px;height:3px;background:#FF6600;margin:10px auto 0}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-text p{margin-bottom:16px}
+.about-img{background:#E1DFC8;border-radius:12px;height:280px;display:flex;align-items:center;justify-content:center;color:#996600;font-size:.9rem}
+
+/* Features */
+.features{background:#fff}
+.features-inner{max-width:960px;margin:0 auto;padding:60px 20px}
+.feature-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{background:#F0EFE3;border-radius:12px;padding:32px 24px;text-align:center;border:1px solid #E1DFC8;transition:transform .3s,box-shadow .3s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.feature-icon{font-size:2.4rem;margin-bottom:12px}
+.feature-card h3{font-size:1.05rem;color:#333;margin-bottom:8px}
+.feature-card p{font-size:.85rem;color:#555}
+
+/* Treatment */
+.treatment-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.treatment-item{background:#fff;border-radius:12px;padding:28px 24px;border-left:4px solid #996600;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.treatment-item h3{font-size:1.05rem;color:#996600;margin-bottom:8px}
+.treatment-item p{font-size:.88rem;color:#555}
+
+/* Schedule */
+.schedule{background:#fff}
+.schedule-inner{max-width:960px;margin:0 auto;padding:60px 20px}
+.schedule-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.schedule-table th,.schedule-table td{padding:14px 12px;text-align:center;border:1px solid #ddd;font-size:.9rem}
+.schedule-table thead th{background:#996600;color:#fff;font-weight:500}
+.schedule-table tbody th{background:#feedd5;text-align:left;font-weight:500}
+.schedule-note{font-size:.8rem;color:#666;margin-bottom:8px}
+.circle{color:#FF6600;font-weight:700;font-size:1.1rem}
+.cross{color:#999}
+
+/* Access */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.access-info h3{font-size:1.1rem;color:#996600;margin-bottom:12px}
+.access-info p{margin-bottom:8px;font-size:.9rem}
+.access-map{background:#E1DFC8;border-radius:12px;height:300px;display:flex;align-items:center;justify-content:center;color:#996600;font-size:.9rem}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,#996600 0%,#7a5200 100%);padding:60px 20px;text-align:center;color:#fff}
+.cta h2{font-size:1.5rem;margin-bottom:12px}
+.cta p{margin-bottom:24px;font-size:.95rem;opacity:.9}
+.btn-cta{display:inline-block;background:#FF6600;color:#fff;padding:16px 48px;border-radius:6px;font-size:1.1rem;font-weight:700;transition:background .3s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-cta:hover{background:#e55a00;color:#fff;transform:translateY(-2px)}
+.cta-tel{margin-top:16px;font-size:1.3rem;font-weight:700}
+.cta-tel a{color:#fff}
+
+/* Footer */
+.footer{background:#333;color:#ccc;padding:32px 20px;text-align:center;font-size:.8rem}
+.footer a{color:#FF9900}
+
+/* SSL Badge */
+.ssl-badge{display:inline-flex;align-items:center;gap:6px;background:#e8f5e9;color:#2e7d32;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:500;margin-top:8px}
+.ssl-badge::before{content:'🔒'}
+
+/* Responsive */
+@media(max-width:768px){
+  .header-inner{flex-direction:column;text-align:center;gap:8px}
+  .header-contact{text-align:center}
+  .nav ul{flex-direction:column}
+  .nav a{padding:10px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .hero h2{font-size:1.3rem}
+  .about-grid,.treatment-list,.access-grid{grid-template-columns:1fr}
+  .feature-cards{grid-template-columns:1fr}
+  .schedule-table th,.schedule-table td{padding:8px 4px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <h1>梅田鍼灸治療院・整骨院</h1>
+      <span>大阪 南森町・天満｜心とからだの根本治療</span>
+    </div>
+    <div class="header-contact">
+      <div class="tel"><a href="tel:06-6881-0302">☎ 06-6881-0302</a></div>
+      <div class="addr">大阪市北区天神橋2丁目北1-11 ステップイン南森町2F</div>
+      <div class="ssl-badge">SSL対応で安全な通信</div>
+    </div>
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="nav">
+  <ul>
+    <li><a href="#top">ホーム</a></li>
+    <li><a href="#about">当院について</a></li>
+    <li><a href="#treatment">施術内容</a></li>
+    <li><a href="#schedule">診療時間</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#contact">ご予約</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <h2>人間本来の<em>自己免疫力</em>を向上させる<br>心（こころ）と身（からだ）の根本治療</h2>
+  <p>西洋・東洋医学の融合で、肩・腰・膝の痛みから自律神経失調症まで。<br>AKA・関節モビライゼーション、FJS療法など高度な専門技術で根本改善を目指します。</p>
+  <a href="#contact" class="btn-primary">予約・お問い合わせ</a>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <h2 class="section-title">当院について</h2>
+  <p class="section-sub">開院以来、多くの方から「改善した」という声をいただいています</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>様々な痛みや不快な症状は心（こころ）と身（からだ）の不調から生じています。当院では、痛みの症状を単に打ち消す（対処療法）のではなく、<strong>根本（原因）治療</strong>を目的としています。</p>
+      <p>痛みの原因を探るため問診を重視し、個々の症状に合わせて、西洋・東洋療法の医学の見地から、様々な治療法を行います。</p>
+      <ul style="list-style:none;padding:0">
+        <li style="padding:6px 0;padding-left:20px;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22><circle cx=%226%22 cy=%226%22 r=%224%22 fill=%22%23996600%22/></svg>') no-repeat left center">検査では異常なしだが、痛みがある</li>
+        <li style="padding:6px 0;padding-left:20px;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22><circle cx=%226%22 cy=%226%22 r=%224%22 fill=%22%23996600%22/></svg>') no-repeat left center">色々な治療をしたが改善されない</li>
+        <li style="padding:6px 0;padding-left:20px;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22><circle cx=%226%22 cy=%226%22 r=%224%22 fill=%22%23996600%22/></svg>') no-repeat left center">年齢や体質だからと諦めている</li>
+      </ul>
+    </div>
+    <div class="about-img">
+      <p>院長 梅田 正浩<br>【院内写真エリア】</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <div class="features-inner">
+    <h2 class="section-title">選ばれる理由</h2>
+    <p class="section-sub">根本治療を追求する3つのアプローチ</p>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon">🏥</div>
+        <h3>西洋×東洋医学の融合</h3>
+        <p>脈・舌・腹診を用いた東洋医学と、現代医学的アプローチを組み合わせた総合的な治療法</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤲</div>
+        <h3>AKA・関節モビライゼーション</h3>
+        <p>関節の機能障害を改善し、痛みの根本原因にアプローチする高度な手技療法</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>FJS療法</h3>
+        <p>人間本来の自己免疫力を最大限に引き出し、自然治癒力を高める独自の治療法</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Treatment -->
+<section class="section" id="treatment">
+  <h2 class="section-title">施術内容</h2>
+  <p class="section-sub">一人ひとりの症状に合わせた最適な治療をご提案します</p>
+  <div class="treatment-list">
+    <div class="treatment-item">
+      <h3>鍼灸治療</h3>
+      <p>三千年以上の歴史を持つ東洋医学に基づき、少数鍼で大きな効果を得る治療法。WHO（世界保健機構）認定の適応疾患に対応。</p>
+    </div>
+    <div class="treatment-item">
+      <h3>AKA・関節モビライゼーション</h3>
+      <p>関節面の運動を改善し、関節の機能障害を取り除くことで痛みを根本から解消する手技療法。</p>
+    </div>
+    <div class="treatment-item">
+      <h3>FJS療法</h3>
+      <p>人間本来の自然治癒力・免疫力を呼び覚まし、からだの内側から改善を促す独自療法。</p>
+    </div>
+    <div class="treatment-item">
+      <h3>整骨治療（各種保険対応）</h3>
+      <p>捻挫・打撲・スポーツ傷害・骨折・脱臼・関節の痛み・しびれなど。各種健康保険取扱い。</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <p style="background:#feedd5;display:inline-block;padding:12px 24px;border-radius:8px;font-size:.9rem">
+      <strong>料金：</strong>初回 6,000円 ／ 2回目以降 4,500円（鍼灸治療）
+    </p>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section class="schedule" id="schedule">
+  <div class="schedule-inner">
+    <h2 class="section-title">診療時間</h2>
+    <p class="section-sub">予約優先制（鍼灸治療）</p>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>午前 9:00〜13:00</th>
+          <td class="circle">○</td><td class="circle">○</td><td class="circle">○</td><td class="circle">○</td><td>△<br><span style="font-size:.7rem">11:30〜</span></td><td class="circle">○</td>
+        </tr>
+        <tr>
+          <th>午後 15:00〜19:00</th>
+          <td class="circle">○</td><td class="circle">○</td><td class="circle">○</td><td class="cross">×</td><td class="circle">○</td><td class="cross">×</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="schedule-note">※ 休診日：木・土曜午後、日曜祝日</p>
+    <p class="schedule-note">※ 金曜午前は11:30〜（講義期間中）</p>
+    <p class="schedule-note">※ 各種保険取扱い</p>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="section" id="access">
+  <h2 class="section-title">アクセス</h2>
+  <p class="section-sub">南森町駅・天満駅から徒歩すぐ</p>
+  <div class="access-grid">
+    <div class="access-info">
+      <h3>梅田鍼灸治療院・整骨院</h3>
+      <p>〒530-0041<br>大阪市北区天神橋2丁目北1番11号<br>ステップイン南森町2F</p>
+      <p><strong>電話：</strong><a href="tel:06-6881-0302">06-6881-0302</a></p>
+      <p><strong>メール予約：</strong><a href="mailto:umeda.hari@gmail.com">umeda.hari@gmail.com</a></p>
+      <p style="font-size:.85rem;color:#666;margin-top:12px">
+        ・地下鉄谷町線/堺筋線「南森町」駅より徒歩約3分<br>
+        ・JR東西線「大阪天満宮」駅より徒歩約3分<br>
+        ・天神橋筋商店街沿い
+      </p>
+    </div>
+    <div class="access-map">
+      <p>【Google Map 埋め込みエリア】</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>ご予約・お問い合わせ</h2>
+  <p>お電話またはメールでお気軽にご予約ください。<br>どんな小さなことでもご相談いただけます。</p>
+  <a href="tel:06-6881-0302" class="btn-cta">☎ 電話で予約する</a>
+  <div style="margin-top:16px">
+    <a href="mailto:umeda.hari@gmail.com" class="btn-primary" style="background:#fff;color:#996600;box-shadow:none;border:2px solid #fff">✉ メールで予約する</a>
+  </div>
+  <p class="cta-tel">TEL: <a href="tel:06-6881-0302">06-6881-0302</a></p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 梅田鍼灸治療院・整骨院｜大阪市北区天神橋（南森町）</p>
+  <p style="margin-top:4px"><a href="#top">ページトップへ</a></p>
+</footer>
+
+</body>
+</html>

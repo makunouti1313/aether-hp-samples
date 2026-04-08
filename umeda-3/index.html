@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>梅田鍼灸治療院・整骨院｜大阪 南森町・天満</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;line-height:1.8;background:#0a0a0a;overflow-x:hidden}
+a{text-decoration:none;transition:all .4s cubic-bezier(.25,.46,.45,.94)}
+
+:root{
+  --dark:#0a0a0a;
+  --dark2:#141414;
+  --dark3:#1e1e1e;
+  --gold:#c9a84c;
+  --gold-light:#e8d48b;
+  --white:#f5f5f0;
+  --gray:#888;
+  --accent:#b8922a;
+}
+
+/* Smooth reveal animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)}50%{box-shadow:0 0 0 12px rgba(201,168,76,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes brushStroke{from{width:0}to{width:100%}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s}
+.header.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);padding:10px 0}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo h1{font-family:'Noto Serif JP',serif;font-size:1.1rem;color:var(--gold);font-weight:700;letter-spacing:.15em}
+.logo span{display:block;font-size:.6rem;color:var(--gray);letter-spacing:.2em;margin-top:2px}
+.header-cta{display:flex;align-items:center;gap:20px}
+.header-tel{color:var(--gold-light);font-size:.9rem;font-weight:500;letter-spacing:.05em}
+.header-tel a{color:var(--gold-light)}
+.btn-glow{display:inline-block;background:transparent;color:var(--gold);padding:10px 28px;border:1px solid var(--gold);border-radius:2px;font-size:.8rem;letter-spacing:.15em;font-weight:500;position:relative;overflow:hidden;transition:all .4s}
+.btn-glow::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(201,168,76,.15),transparent);transition:left .6s}
+.btn-glow:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+.btn-glow:hover::before{left:100%}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:var(--dark);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(201,168,76,.05) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:80px 80px}
+.hero-particle{position:absolute;width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.3;animation:float 6s ease-in-out infinite}
+.hero-particle:nth-child(2){top:20%;left:15%;animation-delay:1s;animation-duration:8s}
+.hero-particle:nth-child(3){top:60%;left:80%;animation-delay:2s;animation-duration:7s}
+.hero-particle:nth-child(4){top:80%;left:30%;animation-delay:3s;animation-duration:9s}
+.hero-particle:nth-child(5){top:30%;left:70%;animation-delay:.5s;animation-duration:6s}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;animation:fadeUp 1.2s ease-out}
+.hero-label{font-size:.7rem;color:var(--gold);letter-spacing:.5em;margin-bottom:24px;text-transform:uppercase}
+.hero h2{font-family:'Noto Serif JP',serif;font-size:3rem;color:var(--white);font-weight:700;line-height:1.5;margin-bottom:20px}
+.hero h2 .gold{color:var(--gold);position:relative;display:inline-block}
+.hero h2 .gold::after{content:'';position:absolute;bottom:-4px;left:0;height:2px;background:var(--gold);animation:brushStroke 1.5s ease-out 1s forwards;width:0}
+.hero-sub{font-size:1rem;color:var(--gray);max-width:500px;margin:0 auto 40px;line-height:2;font-weight:300}
+.hero-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn-hero{display:inline-flex;align-items:center;gap:8px;padding:16px 44px;font-size:.9rem;font-weight:500;letter-spacing:.1em;border-radius:2px;transition:all .4s}
+.btn-hero-primary{background:var(--gold);color:var(--dark);box-shadow:0 4px 24px rgba(201,168,76,.3);animation:pulse 3s infinite}
+.btn-hero-primary:hover{background:var(--gold-light);color:var(--dark);transform:translateY(-3px);box-shadow:0 8px 32px rgba(201,168,76,.4)}
+.btn-hero-outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+.btn-hero-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);color:var(--gold)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:.65rem;letter-spacing:.3em;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;animation:float 3s ease-in-out infinite}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* Section base */
+.sec{padding:100px 24px}
+.sec-inner{max-width:1000px;margin:0 auto}
+.sec-label{font-size:.65rem;color:var(--gold);letter-spacing:.5em;margin-bottom:8px;text-transform:uppercase}
+.sec-title{font-family:'Noto Serif JP',serif;font-size:2rem;color:var(--white);margin-bottom:16px;font-weight:700;line-height:1.5}
+.sec-desc{font-size:.9rem;color:var(--gray);margin-bottom:48px;line-height:2;max-width:600px}
+.sec-center{text-align:center}
+.sec-center .sec-desc{margin-left:auto;margin-right:auto}
+
+/* Philosophy */
+.philosophy-sec{background:var(--dark2);position:relative;overflow:hidden}
+.philosophy-sec::before{content:'心';position:absolute;top:50%;right:5%;transform:translateY(-50%);font-family:'Noto Serif JP',serif;font-size:20rem;color:rgba(201,168,76,.03);font-weight:700;pointer-events:none}
+.philosophy-quote{font-family:'Noto Serif JP',serif;font-size:1.6rem;color:var(--white);line-height:2;margin-bottom:32px;position:relative;padding-left:32px;border-left:3px solid var(--gold)}
+.philosophy-text{font-size:.9rem;color:var(--gray);line-height:2.2;max-width:640px}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:60px 0}
+.stat-item{background:var(--dark3);padding:48px 24px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
+.stat-item::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .6s;transform-origin:left}
+.stat-item:hover::before{transform:scaleX(1)}
+.stat-item:hover{background:rgba(201,168,76,.05)}
+.stat-num{font-family:'Noto Serif JP',serif;font-size:2.8rem;color:var(--gold);font-weight:700;line-height:1;margin-bottom:8px}
+.stat-label{font-size:.75rem;color:var(--gray);letter-spacing:.1em}
+
+/* Treatment */
+.treat-sec{background:var(--dark)}
+.treat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.treat-item{background:var(--dark2);padding:48px 36px;position:relative;overflow:hidden;transition:all .5s;cursor:default}
+.treat-item::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .5s}
+.treat-item:hover::after{height:100%}
+.treat-item:hover{background:var(--dark3)}
+.treat-num{font-family:'Noto Serif JP',serif;font-size:3rem;color:rgba(201,168,76,.1);font-weight:700;position:absolute;top:16px;right:24px;line-height:1}
+.treat-item h3{font-family:'Noto Serif JP',serif;font-size:1.1rem;color:var(--gold);margin-bottom:12px;font-weight:700}
+.treat-item p{font-size:.85rem;color:var(--gray);line-height:2}
+
+/* Price */
+.price-sec{background:var(--dark2)}
+.price-card{max-width:520px;margin:0 auto;border:1px solid rgba(201,168,76,.2);padding:48px;text-align:center;position:relative}
+.price-card::before,.price-card::after{content:'';position:absolute;width:24px;height:24px;border-color:var(--gold);border-style:solid}
+.price-card::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.price-card::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.price-card h3{font-family:'Noto Serif JP',serif;color:var(--gold);font-size:1.1rem;margin-bottom:24px;letter-spacing:.1em}
+.price-amounts{display:flex;justify-content:center;gap:40px;margin-bottom:16px}
+.price-val{color:var(--white)}
+.price-val strong{font-family:'Noto Serif JP',serif;font-size:2rem;color:var(--gold)}
+.price-val span{font-size:.8rem;color:var(--gray);display:block;margin-top:4px}
+.price-small{font-size:.75rem;color:var(--gray)}
+
+/* Schedule */
+.sched-sec{background:var(--dark)}
+.sched-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.sched-table th,.sched-table td{padding:16px;text-align:center;font-size:.85rem;border:1px solid rgba(201,168,76,.1)}
+.sched-table thead th{background:rgba(201,168,76,.1);color:var(--gold);font-weight:500;letter-spacing:.1em}
+.sched-table tbody th{text-align:left;color:var(--white);font-weight:400;background:var(--dark2)}
+.sched-table tbody td{color:var(--gray);background:var(--dark2)}
+.sched-ok{color:var(--gold);font-weight:700;font-size:1.1rem}
+.sched-no{color:rgba(255,255,255,.15)}
+.sched-note{font-size:.75rem;color:var(--gray);line-height:1.9}
+
+/* Access */
+.access-sec{background:var(--dark2)}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.access-info h3{font-family:'Noto Serif JP',serif;color:var(--gold);font-size:1.1rem;margin-bottom:20px}
+.access-info p{font-size:.88rem;color:var(--gray);margin-bottom:10px;line-height:1.9}
+.access-info .big-tel{font-family:'Noto Serif JP',serif;font-size:1.4rem;color:var(--gold);font-weight:700}
+.access-info .big-tel a{color:var(--gold)}
+.access-map{background:var(--dark3);border:1px solid rgba(201,168,76,.1);height:320px;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.85rem}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,rgba(201,168,76,.1) 0%,var(--dark) 100%);padding:100px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.cta-sec h2{font-family:'Noto Serif JP',serif;font-size:2rem;color:var(--white);margin-bottom:16px}
+.cta-sec p{font-size:.9rem;color:var(--gray);margin-bottom:36px;line-height:2}
+.cta-btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.btn-cta-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);padding:18px 52px;font-size:1rem;font-weight:700;letter-spacing:.1em;border-radius:2px;box-shadow:0 4px 24px rgba(201,168,76,.3);transition:all .4s}
+.btn-cta-gold:hover{background:var(--gold-light);color:var(--dark);transform:translateY(-3px);box-shadow:0 8px 32px rgba(201,168,76,.4)}
+.btn-cta-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);padding:18px 52px;font-size:1rem;font-weight:500;letter-spacing:.1em;border:1px solid rgba(201,168,76,.4);border-radius:2px;transition:all .4s}
+.btn-cta-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);color:var(--gold)}
+
+/* Footer */
+.footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.08);padding:32px 24px;text-align:center}
+.footer p{font-size:.7rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+.footer a{color:var(--gold)}
+
+/* Responsive */
+@media(max-width:768px){
+  .header-inner{flex-direction:column;gap:8px}
+  .header-cta{gap:12px}
+  .hero h2{font-size:1.8rem}
+  .hero-sub{font-size:.88rem}
+  .stats-row{grid-template-columns:1fr}
+  .treat-grid{grid-template-columns:1fr}
+  .price-amounts{flex-direction:column;gap:16px}
+  .access-grid{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .philosophy-quote{font-size:1.2rem}
+  .sec-title{font-size:1.5rem}
+  .philosophy-sec::before{font-size:10rem;right:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo">
+      <h1>梅田鍼灸治療院</h1>
+      <span>UMEDA ACUPUNCTURE &amp; OSTEOPATHY</span>
+    </div>
+    <div class="header-cta">
+      <div class="header-tel"><a href="tel:06-6881-0302">06-6881-0302</a></div>
+      <a href="#cta" class="btn-glow">RESERVE</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-particle" style="top:15%;left:10%"></div>
+  <div class="hero-particle" style="top:25%;left:85%"></div>
+  <div class="hero-particle" style="top:65%;left:20%"></div>
+  <div class="hero-particle" style="top:75%;left:75%"></div>
+  <div class="hero-particle" style="top:45%;left:90%"></div>
+  <div class="hero-content">
+    <p class="hero-label">Osaka Minamimorimachi</p>
+    <h2>痛みの<span class="gold">根本</span>に、<br>向き合う治療を。</h2>
+    <p class="hero-sub">西洋医学と東洋医学を融合した独自療法。<br>AKA・FJS療法で、あなたの「改善」を実現します。</p>
+    <div class="hero-btns">
+      <a href="tel:06-6881-0302" class="btn-hero btn-hero-primary">電話予約</a>
+      <a href="mailto:umeda.hari@gmail.com" class="btn-hero btn-hero-outline">メール予約</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="sec philosophy-sec" id="philosophy">
+  <div class="sec-inner reveal">
+    <p class="sec-label">Philosophy</p>
+    <h2 class="sec-title">治療理念</h2>
+    <blockquote class="philosophy-quote">
+      身（からだ）へのアプローチが、<br>
+      心（こころ）への治療につながる。
+    </blockquote>
+    <p class="philosophy-text">
+      痛みの症状を打ち消すだけの対処療法ではなく、根本原因を追求する。<br>
+      問診を重視し、一人ひとりの症状に合わせた最適な治療を、<br>
+      西洋・東洋両方の医学的見地から組み立てます。
+    </p>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-item reveal">
+    <div class="stat-num">3,000+</div>
+    <div class="stat-label">年以上の東洋医学の知見</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:.15s">
+    <div class="stat-num">4</div>
+    <div class="stat-label">つの専門療法</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:.3s">
+    <div class="stat-num">W</div>
+    <div class="stat-label">西洋 x 東洋 融合アプローチ</div>
+  </div>
+</div>
+
+<!-- Treatment -->
+<section class="sec treat-sec" id="treatment">
+  <div class="sec-inner">
+    <p class="sec-label sec-center">Treatment</p>
+    <h2 class="sec-title sec-center">施術内容</h2>
+    <p class="sec-desc sec-center">人間本来の自己免疫力を最大限に引き出す、4つの専門療法</p>
+    <div class="treat-grid">
+      <div class="treat-item reveal">
+        <div class="treat-num">01</div>
+        <h3>鍼灸治療</h3>
+        <p>脈・舌・腹診を用いて身体内部の状態を把握。少数鍼で大きな効果を得る、三千年の知恵に基づくトータル・ヘルスケア。WHO認定適応疾患に対応。</p>
+      </div>
+      <div class="treat-item reveal" style="transition-delay:.1s">
+        <div class="treat-num">02</div>
+        <h3>AKA・関節モビライゼーション</h3>
+        <p>関節面の運動を正常化し、機能障害を根本から取り除く高度な手技療法。検査では見つからない痛みの原因に直接アプローチします。</p>
+      </div>
+      <div class="treat-item reveal" style="transition-delay:.2s">
+        <div class="treat-num">03</div>
+        <h3>FJS療法</h3>
+        <p>人間本来の自然治癒力・強い免疫力を呼び覚ます当院独自の療法。これまでにない改善を多くの方が実感しています。</p>
+      </div>
+      <div class="treat-item reveal" style="transition-delay:.3s">
+        <div class="treat-num">04</div>
+        <h3>整骨治療</h3>
+        <p>捻挫・打撲・スポーツ傷害・骨折・脱臼・関節の痛み。各種健康保険取扱い。スポーツ選手からご高齢の方まで幅広く対応。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Price -->
+<section class="sec price-sec" id="price">
+  <div class="sec-inner sec-center">
+    <p class="sec-label">Price</p>
+    <h2 class="sec-title">料金</h2>
+    <div class="price-card reveal">
+      <h3>鍼灸治療</h3>
+      <div class="price-amounts">
+        <div class="price-val"><span>初回</span><strong>6,000</strong>円</div>
+        <div class="price-val"><span>2回目以降</span><strong>4,500</strong>円</div>
+      </div>
+      <p class="price-small">※お支払いは現金のみ ／ 各種保険取扱い（整骨治療）</p>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section class="sec sched-sec" id="schedule">
+  <div class="sec-inner">
+    <p class="sec-label sec-center">Schedule</p>
+    <h2 class="sec-title sec-center">診療時間</h2>
+    <div class="reveal">
+      <table class="sched-table">
+        <thead>
+          <tr><th></th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>9:00 - 13:00</th>
+            <td class="sched-ok">○</td><td class="sched-ok">○</td><td class="sched-ok">○</td><td class="sched-ok">○</td><td>△</td><td class="sched-ok">○</td>
+          </tr>
+          <tr>
+            <th>15:00 - 19:00</th>
+            <td class="sched-ok">○</td><td class="sched-ok">○</td><td class="sched-ok">○</td><td class="sched-no">-</td><td class="sched-ok">○</td><td class="sched-no">-</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="sched-note" style="text-align:center">予約優先制（鍼灸治療）｜休診：木・土午後 / 日祝｜金午前 11:30〜（講義期間）</p>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="sec access-sec" id="access">
+  <div class="sec-inner">
+    <p class="sec-label sec-center">Access</p>
+    <h2 class="sec-title sec-center">アクセス</h2>
+    <div class="access-grid reveal">
+      <div class="access-info">
+        <h3>梅田鍼灸治療院・整骨院</h3>
+        <p>〒530-0041<br>大阪市北区天神橋2丁目北1番11号<br>ステップイン南森町2F</p>
+        <p class="big-tel"><a href="tel:06-6881-0302">☎ 06-6881-0302</a></p>
+        <p>メール：<a href="mailto:umeda.hari@gmail.com" style="color:var(--gold)">umeda.hari@gmail.com</a></p>
+        <p style="margin-top:20px;padding:16px;border:1px solid rgba(201,168,76,.1);font-size:.82rem;line-height:2">
+          地下鉄「南森町」駅 徒歩約3分<br>
+          JR「大阪天満宮」駅 徒歩約3分<br>
+          天神橋筋商店街沿い
+        </p>
+      </div>
+      <div class="access-map">
+        <p>【Google Map 埋め込みエリア】</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="reveal">
+    <p class="sec-label">Contact</p>
+    <h2 style="font-family:'Noto Serif JP',serif;font-size:2rem;color:var(--white);margin-bottom:16px">ご予約・ご相談</h2>
+    <p style="font-size:.9rem;color:var(--gray);margin-bottom:36px;line-height:2">どんな小さなお悩みでも、まずはお気軽にご連絡ください。<br>お電話・メールどちらでもご予約いただけます。</p>
+    <div class="cta-btns">
+      <a href="tel:06-6881-0302" class="btn-cta-gold">☎ 電話で予約する</a>
+      <a href="mailto:umeda.hari@gmail.com" class="btn-cta-outline">✉ メールで予約する</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 梅田鍼灸治療院・整骨院｜大阪市北区天神橋（南森町）</p>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>observer.observe(el));
+
+// Header scroll
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
+
+// Smooth counter animation
+const statNums=document.querySelectorAll('.stat-num');
+const statObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const text=el.textContent;
+      const num=parseInt(text.replace(/[^0-9]/g,''));
+      if(!isNaN(num)&&num>0){
+        const suffix=text.replace(/[0-9,]/g,'');
+        let start=0;
+        const duration=1500;
+        const startTime=performance.now();
+        const animate=(now)=>{
+          const progress=Math.min((now-startTime)/duration,1);
+          const eased=1-Math.pow(1-progress,3);
+          const current=Math.floor(eased*num);
+          el.textContent=current.toLocaleString()+suffix;
+          if(progress<1)requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+      statObserver.unobserve(el);
+    }
+  });
+},{threshold:.5});
+statNums.forEach(el=>statObserver.observe(el));
+</script>
+
+</body>
+</html>

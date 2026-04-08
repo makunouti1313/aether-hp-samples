@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewBirth｜長崎市浜町の女性専用ダイエット専門ジム</title>
+<meta name="description" content="長崎市浜町（思案橋）の女性専用ダイエット専門セミパーソナルジム NewBirth。TRXピラティスと全国サロン採用メソッドで10年の実績。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0A0A0A;
+  --dark: #1A1A1A;
+  --dark2: #222222;
+  --gray: #888888;
+  --gray-light: #CCCCCC;
+  --white: #FFFFFF;
+  --accent: #E84B7A;
+  --accent-glow: rgba(232, 75, 122, 0.4);
+  --gold: #D4A857;
+  --gradient: linear-gradient(135deg, #E84B7A, #D4A857);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--white);
+  background: var(--black);
+  line-height: 1.8;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ===== CURSOR GLOW ===== */
+.cursor-glow {
+  position: fixed;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,75,122,0.07) 0%, transparent 70%);
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease, top 0.3s ease;
+}
+
+/* ===== LOADING ===== */
+.loading-screen {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--black);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.loading-screen.hidden { opacity: 0; visibility: hidden; }
+.loading-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: pulse 1.5s infinite;
+}
+.loading-bar {
+  width: 120px; height: 2px;
+  background: var(--dark2);
+  margin-top: 24px; border-radius: 2px;
+  overflow: hidden;
+}
+.loading-bar-fill {
+  height: 100%; width: 0;
+  background: var(--gradient);
+  animation: loadBar 2s ease forwards;
+}
+@keyframes loadBar { to { width: 100%; } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 20px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  mix-blend-mode: difference;
+  transition: all 0.4s;
+}
+.logo-pro {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+nav { display: flex; gap: 32px; align-items: center; }
+nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+nav a::after {
+  content: ''; position: absolute;
+  bottom: -4px; left: 0; width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+nav a:hover::after { width: 100%; }
+nav a:hover { color: var(--accent); }
+.nav-contact {
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 24px;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.2em !important;
+  transition: all 0.3s;
+}
+.nav-contact:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.nav-contact::after { display: none !important; }
+
+.hamburger { display: none; cursor: pointer; background: none; border: none; padding: 8px; z-index: 200; }
+.hamburger span { display: block; width: 28px; height: 1px; background: var(--white); margin: 6px 0; transition: 0.4s; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--black) 0%, #1A0A10 40%, var(--black) 100%);
+}
+.hero-particles {
+  position: absolute; inset: 0;
+}
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-particle 6s infinite;
+}
+@keyframes float-particle {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  20% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-200px) scale(0); }
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 900px;
+  padding: 0 60px;
+}
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.hero-eyebrow span {
+  display: inline-block;
+  animation: slideUp 0.8s ease forwards;
+  animation-delay: 2.2s;
+  transform: translateY(100%);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.hero h1 .line {
+  display: block; overflow: hidden;
+}
+.hero h1 .line span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: slideUp 0.9s ease forwards;
+}
+.hero h1 .line:nth-child(1) span { animation-delay: 2.4s; }
+.hero h1 .line:nth-child(2) span { animation-delay: 2.6s; }
+.hero h1 .line:nth-child(3) span { animation-delay: 2.8s; }
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes slideUp {
+  to { transform: translateY(0); }
+}
+.hero-desc {
+  font-size: 0.9rem;
+  color: var(--gray);
+  max-width: 500px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 3.2s;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 16px;
+  text-decoration: none;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 3.5s;
+  transition: gap 0.3s;
+}
+.hero-cta:hover { gap: 24px; }
+.hero-cta .line-anim {
+  width: 60px; height: 1px;
+  background: var(--accent);
+  position: relative; overflow: hidden;
+}
+.hero-cta .line-anim::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--white);
+  animation: lineSlide 2s infinite;
+}
+@keyframes lineSlide {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 2;
+}
+.hero-scroll span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gray);
+  writing-mode: vertical-lr;
+}
+.scroll-line {
+  width: 1px; height: 60px;
+  background: var(--dark2);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute;
+  width: 100%; height: 30px;
+  background: var(--accent);
+  animation: scrollDown 2s infinite;
+}
+@keyframes scrollDown {
+  0% { top: -30px; }
+  100% { top: 60px; }
+}
+
+/* ===== SECTION STYLE ===== */
+section { padding: 120px 60px; position: relative; }
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem; font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  position: absolute; top: 80px; left: 60px;
+  line-height: 1;
+}
+.section-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.section-sub {
+  color: var(--gray);
+  font-size: 0.85rem;
+  max-width: 500px;
+  margin-bottom: 60px;
+}
+
+/* ===== ABOUT PRO ===== */
+.about-pro { background: var(--black); overflow: hidden; }
+.about-grid-pro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  aspect-ratio: 3/4;
+}
+.about-visual-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #2A1520, #1A0A10);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.about-visual-bg::before {
+  content: ''; position: absolute; inset: 0;
+  border: 1px solid rgba(232,75,122,0.15);
+  border-radius: 4px;
+}
+.about-visual-content {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px;
+}
+.about-visual-content .big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem; font-weight: 900;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.about-visual-content .big-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+.about-text-pro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  margin-bottom: 24px; line-height: 1.4;
+}
+.about-text-pro p {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  line-height: 2;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 40px;
+}
+.about-stat {
+  text-align: center;
+}
+.about-stat .val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-stat .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ===== METHOD PRO ===== */
+.method-pro { background: var(--dark); }
+.method-grid-pro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.method-card-pro {
+  background: var(--black);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.method-card-pro::before {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 2px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.method-card-pro:hover::before { transform: scaleX(1); }
+.method-card-pro:hover { background: var(--dark); }
+.method-card-pro .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: rgba(255,255,255,0.05);
+  margin-bottom: 24px;
+  transition: color 0.5s;
+}
+.method-card-pro:hover .num { color: rgba(232,75,122,0.2); }
+.method-card-pro h3 {
+  font-size: 1.1rem; font-weight: 500;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.method-card-pro:hover h3 { color: var(--accent); }
+.method-card-pro p {
+  font-size: 0.8rem; color: var(--gray);
+  line-height: 1.9;
+}
+
+/* ===== RESULTS PRO ===== */
+.results-pro { background: var(--black); }
+.results-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.result-pro {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.4s;
+}
+.result-pro:hover { border-color: rgba(232,75,122,0.3); }
+.result-visual-pro {
+  height: 220px;
+  background: linear-gradient(135deg, #1A0A10, #2A1520);
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px;
+  position: relative;
+}
+.result-visual-pro::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(0deg, var(--black) 0%, transparent 40%);
+}
+.ba-block { text-align: center; position: relative; z-index: 1; }
+.ba-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.5rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gray);
+  margin-bottom: 4px;
+}
+.ba-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-weight: 700;
+}
+.ba-before .ba-val { color: var(--gray); }
+.ba-after .ba-val { color: var(--accent); }
+.ba-arrow {
+  font-size: 1.2rem; color: var(--gold);
+  position: relative; z-index: 1;
+}
+.result-meta {
+  padding: 24px;
+  position: relative; z-index: 1;
+}
+.result-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.result-meta p { font-size: 0.8rem; color: var(--gray-light); }
+
+/* ===== MENU PRO ===== */
+.menu-pro { background: var(--dark); }
+.menu-list-pro { max-width: 800px; }
+.menu-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s;
+  cursor: default;
+}
+.menu-row:hover { padding-left: 12px; border-bottom-color: rgba(232,75,122,0.3); }
+.menu-name { font-size: 1rem; font-weight: 400; }
+.menu-dots {
+  flex: 1; margin: 0 16px;
+  border-bottom: 1px dotted rgba(255,255,255,0.15);
+  align-self: flex-end; margin-bottom: 6px;
+}
+.menu-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.menu-price span {
+  font-size: 0.7rem; font-weight: 300;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--gray);
+}
+.menu-detail {
+  font-size: 0.72rem; color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ===== VOICE PRO ===== */
+.voice-pro { background: var(--black); }
+.voice-grid-pro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.voice-item {
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 40px;
+  border-radius: 4px;
+  position: relative;
+  transition: border-color 0.4s;
+}
+.voice-item:hover { border-color: rgba(232,75,122,0.3); }
+.voice-item .quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute; top: 20px; left: 28px;
+  opacity: 0.3;
+}
+.voice-item .stars {
+  color: var(--gold);
+  font-size: 0.75rem;
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+}
+.voice-item p {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  line-height: 2;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.voice-item .author {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  color: var(--gray);
+  letter-spacing: 0.1em;
+}
+
+/* ===== ACCESS PRO ===== */
+.access-pro { background: var(--dark); }
+.access-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start;
+}
+.access-map-pro {
+  aspect-ratio: 4/3;
+  background: var(--dark2);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.access-map-pro iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.92) contrast(0.8); }
+.access-detail dl {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 20px 24px;
+}
+.access-detail dt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 2px;
+}
+.access-detail dd {
+  font-size: 0.85rem; color: var(--gray-light);
+}
+
+/* ===== CTA PRO ===== */
+.cta-pro {
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.cta-pro::before {
+  content: ''; position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,75,122,0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.cta-pro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  position: relative;
+}
+.cta-pro p {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin-bottom: 48px;
+  position: relative;
+}
+.btn-gradient {
+  display: inline-block;
+  background: var(--gradient);
+  color: var(--white);
+  padding: 18px 56px;
+  border-radius: 0;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.btn-gradient:hover { transform: scale(1.03); }
+.btn-gradient::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-gradient:hover::after { opacity: 1; }
+
+/* ===== FOOTER PRO ===== */
+footer {
+  background: var(--dark);
+  padding: 48px 60px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer .footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+footer .footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  color: var(--gray);
+  letter-spacing: 0.15em;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== HORIZONTAL LINE DECO ===== */
+.h-line {
+  width: 60px; height: 1px;
+  background: var(--gradient);
+  margin-bottom: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  section { padding: 80px 24px; }
+  .section-num { font-size: 3rem; left: 24px; top: 60px; }
+  nav { display: none; }
+  .hamburger { display: block; }
+  nav.open {
+    display: flex; flex-direction: column;
+    position: fixed; inset: 0;
+    background: rgba(10,10,10,0.98);
+    justify-content: center; align-items: center;
+    gap: 32px; z-index: 150;
+  }
+  nav.open a { font-size: 1rem; }
+  header { padding: 16px 24px; }
+  .hero-content { padding: 0 24px; }
+  .hero h1 { font-size: 2rem; }
+  .about-grid-pro { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { aspect-ratio: 1/1; max-height: 360px; }
+  .method-grid-pro { grid-template-columns: 1fr; }
+  .results-showcase { grid-template-columns: 1fr; }
+  .voice-grid-pro { grid-template-columns: 1fr; }
+  .access-layout { grid-template-columns: 1fr; }
+  .menu-row { flex-wrap: wrap; }
+  .menu-dots { display: none; }
+  .menu-price { width: 100%; margin-top: 8px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .cursor-glow { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">NewBirth</div>
+  <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-pro">NewBirth</div>
+  <nav id="nav">
+    <a href="#about">About</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#menu">Menu</a>
+    <a href="#voice">Voice</a>
+    <a href="#access">Access</a>
+    <a href="#cta" class="nav-contact">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Women's Diet Gym &mdash; Since 2016</span></div>
+    <h1>
+      <span class="line"><span>Reborn</span></span>
+      <span class="line"><span>Your <span class="gradient-text">Body</span></span></span>
+      <span class="line"><span>& Life.</span></span>
+    </h1>
+    <p class="hero-desc">
+      長崎市浜町（思案橋）。女性専用ダイエット専門ジム。<br>
+      10年の実績と全国サロン採用メソッドが、<br>あなたの理想を現実に変える。
+    </p>
+    <a href="#cta" class="hero-cta">
+      <span class="line-anim"></span>
+      Start Your Journey
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-pro" id="about">
+  <div class="section-num">01</div>
+  <div class="about-grid-pro" style="max-width:1100px; margin:0 auto;">
+    <div class="about-visual reveal">
+      <div class="about-visual-bg"></div>
+      <div class="about-visual-content">
+        <div class="big-num">10</div>
+        <div class="big-label">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="about-text-pro reveal">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">About</div>
+      <h2>女性のカラダを知り尽くした<br>10年の専門技術</h2>
+      <p>NewBirthは、長崎市浜町で10年にわたり女性のダイエットだけに特化してきた専門ジムです。</p>
+      <p>全国のサロンで採用されるメソッドと、体幹を根本から鍛えるTRXピラティスを融合。セミパーソナル形式で一人ひとりに寄り添いながら、確実な結果を出し続けています。</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="val">10yr</div>
+          <div class="label">Experience</div>
+        </div>
+        <div class="about-stat">
+          <div class="val">5.00</div>
+          <div class="label">Rating</div>
+        </div>
+        <div class="about-stat">
+          <div class="val">100%</div>
+          <div class="label">Women Only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method-pro" id="method">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-num">02</div>
+    <div class="reveal" style="margin-bottom:60px;">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">Method</div>
+      <div class="section-heading">3 Core Approaches</div>
+      <div class="section-sub">全国サロン採用メソッドをベースに、あなただけのプログラムを設計。</div>
+    </div>
+    <div class="method-grid-pro">
+      <div class="method-card-pro reveal">
+        <div class="num">01</div>
+        <h3>TRX Pilates</h3>
+        <p>サスペンショントレーニングで体幹を徹底強化。しなやかで引き締まったボディラインを、初心者からでも安全に目指せます。</p>
+      </div>
+      <div class="method-card-pro reveal">
+        <div class="num">02</div>
+        <h3>Diet Support</h3>
+        <p>食べながら痩せる。全国サロン実績のある栄養メソッドで、ストレスフリーなダイエットを実現。厳しい食事制限は不要です。</p>
+      </div>
+      <div class="method-card-pro reveal">
+        <div class="num">03</div>
+        <h3>Body Make</h3>
+        <p>ただ体重を落とすだけでなく、姿勢改善・代謝向上で女性らしい曲線美をデザイン。リバウンドしにくいカラダの土台をつくります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-pro" id="results">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-num">03</div>
+    <div class="reveal" style="margin-bottom:60px;">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">Results</div>
+      <div class="section-heading">Before &amp; After</div>
+      <div class="section-sub">10年間の実績が証明する、確かな変化。</div>
+    </div>
+    <div class="results-showcase">
+      <div class="result-pro reveal">
+        <div class="result-visual-pro">
+          <div class="ba-block ba-before"><div class="ba-label">Before</div><div class="ba-val">62kg</div></div>
+          <div class="ba-arrow">&#10230;</div>
+          <div class="ba-block ba-after"><div class="ba-label">After</div><div class="ba-val">53kg</div></div>
+        </div>
+        <div class="result-meta">
+          <div class="result-tag">30s / 3 months</div>
+          <p>TRXピラティスと食事改善で-9kg。服選びが楽しくなりました。</p>
+        </div>
+      </div>
+      <div class="result-pro reveal">
+        <div class="result-visual-pro">
+          <div class="ba-block ba-before"><div class="ba-label">Before</div><div class="ba-val">58kg</div></div>
+          <div class="ba-arrow">&#10230;</div>
+          <div class="ba-block ba-after"><div class="ba-label">After</div><div class="ba-val">50kg</div></div>
+        </div>
+        <div class="result-meta">
+          <div class="result-tag">40s / 4 months</div>
+          <p>産後太りを解消。子育て中でも通えるペースが嬉しいです。</p>
+        </div>
+      </div>
+      <div class="result-pro reveal">
+        <div class="result-visual-pro">
+          <div class="ba-block ba-before"><div class="ba-label">Before</div><div class="ba-val">55kg</div></div>
+          <div class="ba-arrow">&#10230;</div>
+          <div class="ba-block ba-after"><div class="ba-label">After</div><div class="ba-val">48kg</div></div>
+        </div>
+        <div class="result-meta">
+          <div class="result-tag">20s / 2 months</div>
+          <p>ウエスト-10cm。姿勢が良くなったと周りから褒められます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-pro" id="menu">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-num">04</div>
+    <div class="reveal" style="margin-bottom:60px;">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">Menu & Price</div>
+      <div class="section-heading">Program</div>
+      <div class="section-sub">ライフスタイルに合わせて選べるプラン。</div>
+    </div>
+    <div class="menu-list-pro">
+      <div class="menu-row reveal">
+        <div>
+          <div class="menu-name">セミパーソナル TRXピラティス</div>
+          <div class="menu-detail">少人数制レッスン / 体幹強化 & ボディメイク</div>
+        </div>
+        <div class="menu-dots"></div>
+        <div class="menu-price">&yen;5,500 <span>/回</span></div>
+      </div>
+      <div class="menu-row reveal">
+        <div>
+          <div class="menu-name">ダイエット集中コース</div>
+          <div class="menu-detail">月4回 / TRXピラティス + 食事指導</div>
+        </div>
+        <div class="menu-dots"></div>
+        <div class="menu-price">&yen;19,800 <span>/月</span></div>
+      </div>
+      <div class="menu-row reveal">
+        <div>
+          <div class="menu-name">ボディメイクコース</div>
+          <div class="menu-detail">月8回 / 週2ペースで本格的に</div>
+        </div>
+        <div class="menu-dots"></div>
+        <div class="menu-price">&yen;35,800 <span>/月</span></div>
+      </div>
+      <div class="menu-row reveal">
+        <div>
+          <div class="menu-name">体験レッスン</div>
+          <div class="menu-detail">初回限定 / カウンセリング + TRX体験</div>
+        </div>
+        <div class="menu-dots"></div>
+        <div class="menu-price">&yen;3,300</div>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:0.65rem; color:var(--gray); letter-spacing:0.05em;">* 料金は税込です。詳細はお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="voice-pro" id="voice">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-num">05</div>
+    <div class="reveal" style="margin-bottom:60px;">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">Voice</div>
+      <div class="section-heading">Client Reviews</div>
+      <div class="section-sub">ホットペッパービューティー評価 5.00 / 5.00</div>
+    </div>
+    <div class="voice-grid-pro">
+      <div class="voice-item reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>初めてのジムで不安でしたが、女性専用で少人数なので安心。TRXピラティスは見た目以上にキツいけど、終わった後の爽快感がやみつきです。3ヶ月で-7kg達成できました！</p>
+        <div class="author">M.S &mdash; 30s</div>
+      </div>
+      <div class="voice-item reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>食事制限が苦手な私でも続けられるアドバイス。スタッフさんが丁寧に教えてくれるので、運動経験がなくても大丈夫。姿勢が良くなったと家族に言われました。</p>
+        <div class="author">K.T &mdash; 40s</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access-pro" id="access">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-num">06</div>
+    <div class="reveal" style="margin-bottom:60px;">
+      <div class="h-line"></div>
+      <div class="section-eyebrow">Access</div>
+      <div class="section-heading">Location</div>
+      <div class="section-sub">思案橋電停から徒歩圏内。</div>
+    </div>
+    <div class="access-layout">
+      <div class="access-map-pro reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d129.877!3d32.743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6ZW35bSO5biC5rWc55S6!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-detail reveal">
+        <dl>
+          <dt>Address</dt>
+          <dd>長崎県長崎市浜町（思案橋エリア）</dd>
+          <dt>Station</dt>
+          <dd>思案橋電停より徒歩約3分</dd>
+          <dt>Hours</dt>
+          <dd>10:00 - 21:00（最終受付 20:00）</dd>
+          <dt>Holiday</dt>
+          <dd>不定休</dd>
+          <dt>Contact</dt>
+          <dd>お問い合わせフォームより</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-pro" id="cta">
+  <div style="position:relative; z-index:1;">
+    <div class="section-eyebrow" style="margin-bottom:20px;">Start Today</div>
+    <h2 class="section-heading">あなたの変化は、<br><span class="gradient-text">ここから始まる。</span></h2>
+    <p style="color:var(--gray); font-size:0.85rem; margin-bottom:48px;">まずは無料カウンセリングで、あなたの理想をお聞かせください。</p>
+    <a href="https://beauty.hotpepper.jp/kr/slnH000794948/" class="btn-gradient" target="_blank" rel="noopener">Book Free Counseling</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">NewBirth</div>
+  <div class="footer-copy">&copy; 2026 NewBirth. All rights reserved.</div>
+</footer>
+
+<script>
+// Loading screen
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loadingScreen').classList.add('hidden');
+  }, 2200);
+});
+
+// Cursor glow (desktop only)
+const glow = document.getElementById('cursorGlow');
+if (window.innerWidth > 768) {
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}
+
+// Particles
+const particlesEl = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = (40 + Math.random() * 60) + '%';
+  p.style.animationDelay = Math.random() * 6 + 's';
+  p.style.animationDuration = (4 + Math.random() * 4) + 's';
+  particlesEl.appendChild(p);
+}
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  if (nav.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = '';
+  }
+});
+
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    const spans = hamburger.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = '';
+  });
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

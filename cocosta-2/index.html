@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>整体院 ココスタ Treatment Room｜理学療法士による専門整体｜熊本市西区</title>
+<meta name="description" content="理学療法士・JSPO-AT資格保有の院長による筋膜調整・オステオパシー。症状別の専門施術で根本改善。熊本市西区城山下代。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;
+  --navy-light:#f4f6fa;
+  --blue:#3b6cb5;
+  --blue-light:#e9f0fa;
+  --gold:#b8964e;
+  --gold-light:#faf5ec;
+  --text:#2a2a2a;
+  --text-light:#6b7280;
+  --white:#ffffff;
+  --bg:#fafbfd;
+  --radius:12px;
+  --shadow:0 4px 24px rgba(26,39,68,.06);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);background:var(--bg);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;background:var(--white);border-bottom:1px solid rgba(0,0,0,.04);transition:all .3s}
+.header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Zen Old Mincho',serif;font-size:1.1rem;font-weight:700}
+.logo-text{font-family:'Zen Old Mincho',serif;font-size:1rem;font-weight:700;color:var(--navy)}
+.logo-text small{display:block;font-size:.6rem;font-weight:400;color:var(--text-light);letter-spacing:.15em;font-family:'Zen Kaku Gothic New',sans-serif}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font-size:.82rem;font-weight:500;color:var(--text-light);transition:color .3s}
+.nav a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:10px 24px;border-radius:8px;transition:all .3s!important}
+.nav-cta:hover{background:var(--blue)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:2px;background:var(--navy);transition:.3s}
+
+/* Hero */
+.hero{padding:130px 24px 80px;background:var(--white);position:relative}
+.hero-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--gold-light);color:var(--gold);font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;margin-bottom:20px;letter-spacing:.05em}
+.hero h1{font-family:'Zen Old Mincho',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;line-height:1.6;color:var(--navy);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--blue);border-bottom:2px solid var(--blue)}
+.hero-sub{font-size:.92rem;color:var(--text-light);line-height:2;margin-bottom:28px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;font-size:.88rem;font-weight:500;transition:all .3s;cursor:pointer;border:none}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 6px 24px rgba(26,39,68,.2)}
+.btn-ghost{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:var(--white)}
+.hero-visual{position:relative}
+.hero-img{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,var(--blue-light),var(--navy-light));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:.5}
+.hero-badge{position:absolute;bottom:-16px;left:-16px;background:var(--white);border:1px solid #eee;border-radius:12px;padding:16px 20px;box-shadow:var(--shadow)}
+.hero-badge-title{font-size:.65rem;color:var(--text-light);margin-bottom:4px}
+.hero-badge-val{font-family:'Zen Old Mincho',serif;font-size:1.3rem;font-weight:700;color:var(--navy)}
+.hero-badge-val span{font-size:.8rem;font-weight:400;color:var(--gold)}
+
+/* Section common */
+.section{padding:90px 24px}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:56px}
+.section-en{font-size:.7rem;color:var(--blue);font-weight:700;letter-spacing:.25em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:'Zen Old Mincho',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--navy);margin-bottom:12px}
+.section-desc{font-size:.88rem;color:var(--text-light);max-width:560px;margin:0 auto;line-height:1.9}
+
+/* Specialty */
+.specialty{background:var(--white)}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.spec-card{background:var(--navy-light);border-radius:var(--radius);padding:32px 24px;text-align:center;transition:all .3s;border:1px solid transparent}
+.spec-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:var(--shadow)}
+.spec-icon{width:56px;height:56px;background:var(--blue-light);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.4rem}
+.spec-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.spec-card p{font-size:.82rem;color:var(--text-light);line-height:1.8}
+
+/* Symptoms */
+.symptoms{background:var(--bg)}
+.symp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.symp-item{background:var(--white);border-radius:10px;padding:20px;text-align:center;font-size:.88rem;font-weight:500;color:var(--navy);border:1px solid #eee;transition:all .3s;cursor:default}
+.symp-item:hover{border-color:var(--blue);background:var(--blue-light)}
+.symp-item .symp-icon{font-size:1.4rem;margin-bottom:8px}
+.symp-item p{font-size:.78rem;color:var(--text-light);margin-top:4px;font-weight:400}
+
+/* Case */
+.cases{background:var(--white)}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.case-card{border:1px solid #eee;border-radius:var(--radius);overflow:hidden;transition:all .3s}
+.case-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.case-header{background:var(--navy);color:var(--white);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.case-header h3{font-size:.9rem}
+.case-tag{background:rgba(255,255,255,.15);padding:4px 10px;border-radius:4px;font-size:.7rem}
+.case-body{padding:20px}
+.case-row{display:flex;gap:12px;margin-bottom:12px;font-size:.85rem}
+.case-label{font-weight:700;color:var(--navy);min-width:50px}
+.case-body .result{color:var(--blue);font-weight:700;font-size:.9rem;margin-top:12px;padding-top:12px;border-top:1px solid #eee}
+
+/* Menu */
+.menu-section{background:var(--navy-light)}
+.menu-list{display:grid;gap:16px;max-width:700px;margin:0 auto}
+.menu-item{background:var(--white);border-radius:var(--radius);padding:24px 28px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);transition:all .3s}
+.menu-item:hover{transform:translateX(4px)}
+.menu-item h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.menu-item p{font-size:.8rem;color:var(--text-light)}
+.menu-price{text-align:right}
+.menu-price .price{font-family:'Zen Old Mincho',serif;font-size:1.3rem;font-weight:700;color:var(--gold)}
+.menu-price .time{font-size:.72rem;color:var(--text-light);margin-top:2px}
+.menu-recommend{position:relative}
+.menu-recommend::before{content:'おすすめ';position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--white);font-size:.6rem;padding:3px 8px;border-radius:4px}
+
+/* Profile */
+.profile{background:var(--white)}
+.profile-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
+.profile-img{aspect-ratio:3/4;background:linear-gradient(135deg,var(--navy-light),var(--blue-light));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4}
+.profile-content h3{font-family:'Zen Old Mincho',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.profile-content .prof-name{font-size:.85rem;color:var(--text-light);margin-bottom:16px}
+.profile-content .prof-text{font-size:.88rem;line-height:2;color:var(--text);margin-bottom:20px}
+.prof-tags{display:flex;flex-wrap:wrap;gap:8px}
+.prof-tag{background:var(--blue-light);color:var(--blue);font-size:.72rem;font-weight:500;padding:6px 12px;border-radius:6px}
+
+/* Access */
+.access{background:var(--bg)}
+.access-box{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.access-map{width:100%;height:280px;background:#e8e8e8}
+.access-map iframe{width:100%;height:100%;border:0}
+.access-detail{padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.access-item{font-size:.88rem}
+.access-item dt{font-weight:700;color:var(--navy);margin-bottom:4px;font-size:.78rem;letter-spacing:.05em}
+.access-item dd{color:var(--text-light);line-height:1.7}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--navy),#2a4070);color:var(--white);text-align:center;padding:80px 24px}
+.cta h2{font-family:'Zen Old Mincho',serif;font-size:clamp(1.2rem,3vw,1.7rem);margin-bottom:12px}
+.cta p{opacity:.8;margin-bottom:8px;font-size:.9rem}
+.cta-tel{font-family:'Zen Old Mincho',serif;font-size:2rem;font-weight:700;margin:16px 0 4px;letter-spacing:.03em}
+.cta-tel a{color:var(--white)}
+.cta-hours{font-size:.75rem;opacity:.6;margin-bottom:28px}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:#a07e3e;transform:translateY(-2px)}
+
+/* Footer */
+.footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:36px 24px;font-size:.72rem}
+.footer-name{color:var(--white);font-family:'Zen Old Mincho',serif;font-size:.95rem;margin-bottom:6px}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav{display:none;position:fixed;top:72px;left:0;width:100%;background:var(--white);flex-direction:column;padding:24px;gap:16px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+  .nav.active{display:flex}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .spec-grid{grid-template-columns:1fr}
+  .profile-grid{grid-template-columns:1fr}
+  .profile-img{max-width:240px;margin:0 auto}
+  .access-detail{grid-template-columns:1fr}
+  .menu-item{flex-direction:column;text-align:center;gap:12px}
+  .menu-price{text-align:center}
+  .section{padding:60px 20px}
+}
+
+.sample-badge{position:fixed;bottom:20px;right:20px;background:rgba(0,0,0,.7);color:#fff;font-size:.7rem;padding:8px 16px;border-radius:20px;z-index:999}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">C</div>
+      <div class="logo-text">ココスタ Treatment Room<small>COCOSTA SEITAI</small></div>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#specialty">専門技術</a>
+      <a href="#symptoms">対応症状</a>
+      <a href="#cases">改善事例</a>
+      <a href="#menulist">料金</a>
+      <a href="#profile">院長紹介</a>
+      <a href="#contact" class="nav-cta">予約する</a>
+    </nav>
+    <div class="hamburger" onclick="document.getElementById('nav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">&#9670; 理学療法士×アスレティックトレーナー</div>
+      <h1>「なぜ治らないのか」を<br><em>医学的根拠</em>から<br>解き明かす整体院</h1>
+      <p class="hero-sub">整形外科10年の臨床経験を持つ理学療法士が、<br>筋膜調整・オステオパシーで痛みの根本原因にアプローチ。</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-navy">初回予約はこちら</a>
+        <a href="#specialty" class="btn btn-ghost">技術を見る</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img">&#9775;</div>
+      <div class="hero-badge">
+        <div class="hero-badge-title">臨床経験</div>
+        <div class="hero-badge-val">10<span>年以上</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specialty -->
+<section class="section specialty" id="specialty">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Specialty</div>
+      <div class="section-title">3つの専門技術</div>
+      <p class="section-desc">医療とスポーツの知見を融合した、ココスタだけのアプローチ。</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-icon">&#128302;</div>
+        <h3>筋膜調整</h3>
+        <p>筋膜の癒着・硬結を丁寧にリリース。慢性痛の根本原因にアプローチし、再発を防ぎます。</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#129330;</div>
+        <h3>オステオパシー</h3>
+        <p>身体全体を一つのユニットとして捉え、骨格・内臓・頭蓋の調和を回復させる手技療法。</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#127939;</div>
+        <h3>スポーツケア</h3>
+        <p>JSPO-AT公認の知識で競技者の痛みを分析。復帰からパフォーマンス向上までサポート。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Symptoms -->
+<section class="section symptoms" id="symptoms">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Symptoms</div>
+      <div class="section-title">対応症状</div>
+      <p class="section-desc">以下のような症状でお困りの方はご相談ください。</p>
+    </div>
+    <div class="symp-grid">
+      <div class="symp-item"><div class="symp-icon">&#128170;</div>肩こり・首こり<p>デスクワーク起因</p></div>
+      <div class="symp-item"><div class="symp-icon">&#129469;</div>腰痛・ぎっくり腰<p>急性・慢性どちらも</p></div>
+      <div class="symp-item"><div class="symp-icon">&#128567;</div>頭痛・めまい<p>緊張型・筋由来</p></div>
+      <div class="symp-item"><div class="symp-icon">&#129462;</div>膝・股関節の痛み<p>変形性・スポーツ性</p></div>
+      <div class="symp-item"><div class="symp-icon">&#9917;</div>スポーツ障害<p>競技復帰サポート</p></div>
+      <div class="symp-item"><div class="symp-icon">&#128564;</div>自律神経の乱れ<p>不眠・倦怠感</p></div>
+      <div class="symp-item"><div class="symp-icon">&#129657;</div>手術後リハビリ<p>退院後のケア</p></div>
+      <div class="symp-item"><div class="symp-icon">&#128148;</div>原因不明の不調<p>病院で異常なし</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cases -->
+<section class="section cases" id="cases">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Cases</div>
+      <div class="section-title">改善事例</div>
+      <p class="section-desc">実際にご来院された方の改善事例です。</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <h3>慢性肩こり・頭痛</h3>
+          <span class="case-tag">40代女性</span>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><span class="case-label">症状</span><span>10年来の肩こり、週3回の頭痛</span></div>
+          <div class="case-row"><span class="case-label">原因</span><span>胸郭周囲の筋膜癒着による可動域制限</span></div>
+          <div class="case-row"><span class="case-label">施術</span><span>筋膜調整（5回）+ セルフケア指導</span></div>
+          <div class="result">結果: 頭痛頻度 週3回 → 月1回以下に改善</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <h3>ランナー膝</h3>
+          <span class="case-tag">30代男性</span>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><span class="case-label">症状</span><span>ランニング時の膝外側の痛み</span></div>
+          <div class="case-row"><span class="case-label">原因</span><span>股関節の機能不全による代償パターン</span></div>
+          <div class="case-row"><span class="case-label">施術</span><span>オステオパシー+スポーツケア（4回）</span></div>
+          <div class="result">結果: 3週間で痛みなくフルマラソン完走</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <h3>慢性腰痛</h3>
+          <span class="case-tag">50代女性</span>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><span class="case-label">症状</span><span>整形外科で異常なしと言われた腰痛</span></div>
+          <div class="case-row"><span class="case-label">原因</span><span>腹部筋膜の緊張による腰部への牽引ストレス</span></div>
+          <div class="case-row"><span class="case-label">施術</span><span>筋膜調整+オステオパシー（6回）</span></div>
+          <div class="result">結果: 日常生活の支障ほぼゼロに</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="section menu-section" id="menulist">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Menu & Price</div>
+      <div class="section-title">施術メニュー・料金</div>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item menu-recommend">
+        <div>
+          <h3>筋膜調整コース</h3>
+          <p>慢性的な肩こり・腰痛・頭痛に</p>
+        </div>
+        <div class="menu-price">
+          <div class="price">¥6,600</div>
+          <div class="time">約60分 / 税込</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>オステオパシー整体</h3>
+          <p>全身バランス調整・自律神経の乱れに</p>
+        </div>
+        <div class="menu-price">
+          <div class="price">¥7,700</div>
+          <div class="time">約60分 / 税込</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>スポーツケア</h3>
+          <p>スポーツ障害・パフォーマンス向上</p>
+        </div>
+        <div class="menu-price">
+          <div class="price">¥6,600</div>
+          <div class="time">約60分 / 税込</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>初回限定カウンセリング付き</h3>
+          <p>丁寧なヒアリング＋検査＋施術</p>
+        </div>
+        <div class="menu-price">
+          <div class="price">¥5,500</div>
+          <div class="time">約90分 / 税込</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Profile -->
+<section class="section profile" id="profile">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Profile</div>
+      <div class="section-title">院長紹介</div>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-img">&#128100;</div>
+      <div class="profile-content">
+        <h3>ココスタ Treatment Room 院長</h3>
+        <p class="prof-name">理学療法士 / JSPO-AT（日本スポーツ協会公認アスレティックトレーナー）</p>
+        <p class="prof-text">整形外科で10年間、術後リハビリから慢性疾患まで幅広い症例を経験。「病院では治しきれない痛み」に向き合うため、筋膜調整・オステオパシーを学び開業。一人ひとりの身体を丁寧に評価し、なぜ痛いのか・どうすれば治るのかを分かりやすくご説明します。</p>
+        <div class="prof-tags">
+          <span class="prof-tag">理学療法士（国家資格）</span>
+          <span class="prof-tag">JSPO-AT</span>
+          <span class="prof-tag">筋膜調整</span>
+          <span class="prof-tag">オステオパシー</span>
+          <span class="prof-tag">整形外科10年</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="section access" id="access">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Access</div>
+      <div class="section-title">アクセス</div>
+    </div>
+    <div class="access-box">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.5!2d130.68!3d32.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sja!2sjp!4v1" width="100%" height="280" style="border:0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-detail">
+        <div class="access-item">
+          <dt>院名</dt>
+          <dd>整体院 ココスタ Treatment Room</dd>
+        </div>
+        <div class="access-item">
+          <dt>所在地</dt>
+          <dd>熊本市西区城山下代</dd>
+        </div>
+        <div class="access-item">
+          <dt>営業時間</dt>
+          <dd>9:00〜20:00（最終受付 19:00）</dd>
+        </div>
+        <div class="access-item">
+          <dt>定休日</dt>
+          <dd>不定休</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>あなたの「治らない」に、医学的な答えを。</h2>
+  <p>まずはお気軽にご相談ください。</p>
+  <div class="cta-tel"><a href="tel:0000000000">000-000-0000</a></div>
+  <p class="cta-hours">受付 9:00〜20:00</p>
+  <a href="#" class="btn btn-gold">LINEで予約する</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-name">整体院 ココスタ Treatment Room</div>
+  <p>熊本市西区城山下代<br>&copy; 2024 COCOSTA Treatment Room</p>
+</footer>
+
+<div class="sample-badge">DESIGN SAMPLE by Aether</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('header').classList.toggle('scrolled',window.scrollY>50);
+});
+</script>
+</body>
+</html>
